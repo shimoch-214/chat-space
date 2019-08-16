@@ -1,0 +1,13 @@
+.notifications {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  text-align: center;
+  color: $left-font-color;
+  .notice {
+    background-color: $btn-color;
+  }
+  .alert {
+    background-color: $alert-color;
+  }
+}
