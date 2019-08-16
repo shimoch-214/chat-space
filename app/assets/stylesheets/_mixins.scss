@@ -1,0 +1,8 @@
+@mixin blue-btn($height: 50px, $width: 100px, $font-size: 17px) {
+  background-color: $btn-color;
+  color: $left-font-color;
+  cursor: pointer;
+  height: $height;
+  width: $width;
+  font-size: $font-size;
+}

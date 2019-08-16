@@ -1,0 +1,37 @@
+.creating-group
+  hugahuga
+  
+.wrapper
+  .left-contents
+    .left-header
+      .left-header__user-name
+        shimo
+      .left-header__gadgets
+        =link_to "#" do
+          = fa_icon 'pencil-square-o', class: "left-header__gadgets--gadget"
+        =link_to "#" do
+          = fa_icon 'cog', class: "left-header__gadgets--gadget"
+    .left-groups
+      -[1,2,3].each do |ele|
+        = render partial: "messages/group"
+  .right-contents
+    .chat-header
+      .chat-header__leftbox
+        .chat-header__leftbox__title
+          test
+        %ul.chat-header__leftbox__members
+          %li.chat-header__leftbox__members--list Member :
+          - (0..5).each do |ele|
+            %li.chat-header__leftbox__members--list &nbsp;shimo
+      = link_to "Edit", "#", class: "chat-header__right-btn"
+    .chat-messages
+      - (0..20).each do |ele|
+        = render partial: "messages/message"
+    .chat-form
+      = form_tag "#", class: "chat-form__gadgets" do
+        .chat-form__gadgets__inputs
+          = text_field_tag :text, "",class: "chat-form__gadgets__inputs--text-field", placeholder: "type a message"
+          = label_tag "message-image", class: "chat-form__gadgets__inputs--icon" do
+            = fa_icon "image"
+            = file_field_tag :image, class: "file-field", id: "message-image"
+        = button_tag "Send", type: "submit", class: "chat-form__gadgets__submit-btn"
