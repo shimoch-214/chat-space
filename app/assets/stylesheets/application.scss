@@ -1,5 +1,6 @@
-@import "reset";
-@import "variables";
-@import "mixins";
+@import "config/reset";
+@import "config/variables";
+@import "config/mixins";
 @import "font-awesome";
-@import "_messages";
+@import "messages";
+@import "user";
