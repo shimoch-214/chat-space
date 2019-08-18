@@ -1,0 +1,28 @@
+= form_for group do |f|
+  - if group.errors.any?
+    .chat-group-form__errors
+      %h2
+        = "#{group.errors.full_messages.length}件のエラーが発生しました。"
+        %ul
+        - group.errors.messages.values.each do |message|
+          %li
+            = message[0]
+
+  .chat-group-form__field
+    .chat-group-form__field--left
+      = f.label :name, "グループ名", class: "chat-group-form__label"
+    .chat-group-form__field--right
+      = f.text_field :name, class: "chat-group-form__input", placeholder: "グループ名を入力してください", id: "chat_group_name"
+
+
+  .chat-group-form__field
+    /この部分はインクリメンタルサーチ(ユーザー追加の非同期化)のときに使用します
+
+  .chat-group-form__field
+    .chat-group-form__field--left
+      = f.label "チャットメンバー", class: "chat-group-form__label"
+    .chat-group-form__field--right.collection
+      = f.collection_check_boxes :user_ids, User.all, :id, :name
+  .chat-group-form__field
+    .chat-group-form__field--right
+      = f.submit "Save", class: "chat-group-form__action-btn"
