@@ -3,7 +3,10 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
-  root to: "messages#index"
+  root to: "groups#index"
+  
+  resources :groups, only: [:new, :create, :edit, :update] do
+    resources :messages, only: :index
+  end
 
-  resources :users, only: [:edit, :update]
 end
