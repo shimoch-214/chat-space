@@ -7,7 +7,7 @@ class Message < ApplicationRecord
   # mount_uploader :avatar, AvatarUploader
 
   def self.get_messages(group)
-    if group.messages
+    if group.messages.length > 0
       group.messages.order('created_at asc')
     else
       return false
