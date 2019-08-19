@@ -20,12 +20,14 @@
             = message.created_at.strftime('%Y/%m/%d (%a) %X')
         .chat-messages__text
           = message.body
+          - unless message.image.file.nil?
+            = image_tag message.image
   .chat-form
     = form_for @new_message, url: group_messages_path, html: {class: "chat-form__gadgets"} do |f| 
       .chat-form__gadgets__inputs
         = f.text_field :body, placeholder: "type a message", class: "chat-form__gadgets__inputs--text-field"
-        = f.label "message-image", class: "chat-form__gadgets__inputs--icon" do
+        = f.label :image, class: "chat-form__gadgets__inputs--icon" do
           = fa_icon "image"
-          = f.file_field :image, id: "message-image", class: "file-field"
+          = f.file_field :image, class: "file-field"
       = f.submit "Send", class: "chat-form__gadgets__submit-btn"
       

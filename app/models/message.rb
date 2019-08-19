@@ -1,10 +1,10 @@
 class Message < ApplicationRecord
   validates :body, presence: true, unless: :image?
+  mount_uploader :image, ImageUploader, if: :image?
 
   belongs_to :user
   belongs_to :group
 
-  # mount_uploader :avatar, AvatarUploader
 
   def self.get_messages(group)
     if group.messages.length > 0
