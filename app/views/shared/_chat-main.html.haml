@@ -11,19 +11,13 @@
             = user.name
     = link_to "Edit", edit_group_path(group), class: "chat-header__right-btn"
   .chat-messages
-    - (0..20).each do |ele|
-      .chat-messages__info
-        .chat-messages__info--user
-          test
-        .chat-messages__info--date
-          hogo
-      .chat-messages__text
-        text
+    = render partial: "shared/message", collection: @messages
   .chat-form
-    = form_tag "#", class: "chat-form__gadgets" do
+    = form_for @new_message, url: group_messages_path, html: {class: "chat-form__gadgets"} do |f| 
       .chat-form__gadgets__inputs
-        = text_field_tag :text, "",class: "chat-form__gadgets__inputs--text-field", placeholder: "type a message"
-        = label_tag "message-image", class: "chat-form__gadgets__inputs--icon" do
+        = f.text_field :body, placeholder: "type a message", class: "chat-form__gadgets__inputs--text-field"
+        = f.label :image, class: "chat-form__gadgets__inputs--icon" do
           = fa_icon "image"
-          = file_field_tag :image, class: "file-field", id: "message-image"
-      = button_tag "Send", type: "submit", class: "chat-form__gadgets__submit-btn"
+          = f.file_field :image, class: "file-field"
+      = f.submit "Send", class: "chat-form__gadgets__submit-btn"
+      

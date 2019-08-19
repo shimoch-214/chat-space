@@ -27,13 +27,14 @@
     .left-groups {
       background-color: #2f3e51;
       height: calc(100vh - 100px);
-      padding: 0 20px;
+      padding: 20px 20px;
       display: flex;
       flex-direction: column;
       overflow: scroll;
+      box-sizing: border-box;
       &__group {
         color: $left-font-color;
-        margin: 20px 0;
+        margin-bottom: 40px;
         text-decoration: none;
         &--name {
           font-size: 15px;
@@ -133,7 +134,7 @@
             top: 10px;
             right: 10px;
             background-color: #fff;
-            #message-image {
+            #message_image {
               display: none;
             }
           }
