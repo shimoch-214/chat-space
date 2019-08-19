@@ -6,7 +6,7 @@ class Message < ApplicationRecord
   belongs_to :group
 
 
-  def self.get_messages(group)
+  def self.get_sorted_messages(group)
     if group.messages.length > 0
       group.messages.order('created_at asc')
     else

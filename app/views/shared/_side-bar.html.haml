@@ -13,7 +13,7 @@
         .left-groups__group--name
           = group.name
         .left-groups__group--last-message
-          - if messages = Message.get_messages(group)
+          - if messages = Message.get_sorted_messages(group)
             = messages[messages.length-1].body
           - else
             まだメッセージはありません。

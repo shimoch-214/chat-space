@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
     @user_groups = current_user.groups
     @new_message = Message.new
     @group = Group.find(params[:group_id])
-    @messages = Message.get_messages(@group)
+    @messages = Message.get_sorted_messages(@group).includes(:user)
   end
 
   def create
