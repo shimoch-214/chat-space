@@ -8,12 +8,4 @@
       =link_to edit_user_registration_path, method: :get do
         = fa_icon 'cog', class: "left-header__gadgets--gadget"
   .left-groups
-    - groups.each do |group|
-      = link_to group_messages_path(group), class: "left-groups__group" do
-        .left-groups__group--name
-          = group.name
-        .left-groups__group--last-message
-          - if messages = Message.get_sorted_messages(group)
-            = messages[messages.length-1].body
-          - else
-            まだメッセージはありません。
+    = render partial: "shared/group", collection: current_user.groups

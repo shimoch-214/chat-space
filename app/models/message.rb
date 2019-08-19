@@ -7,10 +7,6 @@ class Message < ApplicationRecord
 
 
   def self.get_sorted_messages(group)
-    if group.messages.length > 0
-      group.messages.order('created_at asc')
-    else
-      return false
-    end
+    group.messages.order('created_at asc')
   end
 end

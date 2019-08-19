@@ -11,17 +11,7 @@
             = user.name
     = link_to "Edit", edit_group_path(group), class: "chat-header__right-btn"
   .chat-messages
-    - if @messages
-      - @messages.each do |message|
-        .chat-messages__info
-          .chat-messages__info--user
-            = message.user.name
-          .chat-messages__info--date
-            = message.created_at.strftime('%Y/%m/%d (%a) %X')
-        .chat-messages__text
-          = message.body
-          - unless message.image.file.nil?
-            = image_tag message.image
+    = render partial: "shared/message", collection: @messages
   .chat-form
     = form_for @new_message, url: group_messages_path, html: {class: "chat-form__gadgets"} do |f| 
       .chat-form__gadgets__inputs
