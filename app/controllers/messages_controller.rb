@@ -28,6 +28,6 @@ class MessagesController < ApplicationController
   end
 
   def set_messages
-    @messages = Message.get_sorted_messages(@group).includes(:user)
+    @messages = @group.messages.order('created_at asc').includes(:user)
   end
 end
