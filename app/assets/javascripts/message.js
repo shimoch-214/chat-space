@@ -1,6 +1,12 @@
 $(function() {
   $('#new_message').on('submit', function(e) {
-    // e.preventDefault();
+    var html = 
+    `
+
+    `
+
+    e.preventDefault();
     console.log("hoge");
+    
   })
 })
