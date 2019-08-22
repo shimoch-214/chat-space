@@ -103,10 +103,15 @@
           color: $right-info-color;
         }
       }
-      &__text {
+      &__message {
+        padding: 10px 0 40px;
+        &--text {
           font-size: 14px;
-          color: $right-message-color;
-          padding: 10px 0 40px;
+          color: $right-message-color;           
+          }
+        &--image {
+          padding-top: 10px;
+        }
       }
     }
     .chat-form {
