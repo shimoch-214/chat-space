@@ -3,7 +3,8 @@
     = message.user.name
   .chat-messages__info--date
     = message.created_at.strftime('%Y/%m/%d (%a) %X')
-.chat-messages__text
-  = message.body
+.chat-messages__message
+  .chat-messages__message--text
+    = message.body
   - unless message.image.file.nil?
-    = image_tag message.image
+    = image_tag message.image, class: "chat-messages__message--image"
