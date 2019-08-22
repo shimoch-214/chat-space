@@ -1,44 +1,23 @@
 $(function() {
     $('#new_message').on('submit', function(e) {
-    function buildHTML(message) {
-      if (message.image == null) {
-
-        var html =
-        `
-        <div class="chat-messages__info">
-        <div class="chat-messages__info--user">
-        ${message.user_name}
-        </div>
-        <div class="chat-messages__info--date">
-        ${message.created_at}
-        </div>
-        </div>
-        <div class="chat-messages__message">
-        <div class="chat-messages__message--text">
-        ${message.body}
-        </div>
-        </div>
-        `
-      }
-      else {
-        var html =
-        `
-        <div class="chat-messages__info">
-        <div class="chat-messages__info--user">
-        ${message.user_name}
-        </div>
-        <div class="chat-messages__info--date">
-        ${message.created_at}
-        </div>
-        </div>
-        <div class="chat-messages__message">
-        <div class="chat-messages__message--text">
-        ${message.body}
-        </div>
-        <img src=${message.image} class="chat-messages__message--image">
-        </div>
-        `
-      }
+    function buildHTML(message, imageTag) {
+      var html =
+      `
+      <div class="chat-messages__info">
+      <div class="chat-messages__info--user">
+      ${message.user_name}
+      </div>
+      <div class="chat-messages__info--date">
+      ${message.created_at}
+      </div>
+      </div>
+      <div class="chat-messages__message">
+      <div class="chat-messages__message--text">
+      ${message.body}
+      </div>
+      ${imageTag}
+      </div>
+      `
       return html;
     }
 
@@ -54,7 +33,8 @@ $(function() {
       contentType: false
     })
     .done(function(message) {
-      var html = buildHTML(message);
+      var imageTag = (message.image == null) ? "" : `<img src=${message.image} class='chat-messages__message--image'>`;
+      var html = buildHTML(message, imageTag);
       $('.chat-messages').append(html);
       $('#message_body').val('');
       $('#message_image').val('');
