@@ -4,18 +4,18 @@ $(function() {
       var html =
       `
       <div class="chat-messages__info">
-      <div class="chat-messages__info--user">
-      ${message.user_name}
-      </div>
-      <div class="chat-messages__info--date">
-      ${message.created_at}
-      </div>
+        <div class="chat-messages__info--user">
+          ${message.user_name}
+        </div>
+        <div class="chat-messages__info--date">
+          ${message.created_at}
+        </div>
       </div>
       <div class="chat-messages__message">
-      <div class="chat-messages__message--text">
-      ${message.body}
-      </div>
-      ${imageTag}
+        <div class="chat-messages__message--text">
+          ${message.body}
+        </div>
+        ${imageTag}
       </div>
       `
       return html;
@@ -36,8 +36,7 @@ $(function() {
       var imageTag = (message.image == null) ? "" : `<img src=${message.image} class='chat-messages__message--image'>`;
       var html = buildHTML(message, imageTag);
       $('.chat-messages').append(html);
-      $('#message_body').val('');
-      $('#message_image').val('');
+      $('#new_message')[0].reset();
       $('.chat-messages').animate({scrollTop: $('.chat-messages')[0].scrollHeight}, 'slow');
       $('#message-btn').attr('disabled', false);
     })
