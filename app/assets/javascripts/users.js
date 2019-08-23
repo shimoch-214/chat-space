@@ -48,7 +48,7 @@ $(window).on('load', function() {
       return
     }
     $.ajax({
-      url: '/users',
+      url: '/api/users',
       type: 'GET',
       dataType: 'json',
       data: { keyword: keyword }
