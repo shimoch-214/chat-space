@@ -5,8 +5,4 @@ class Message < ApplicationRecord
   belongs_to :user
   belongs_to :group
 
-
-  # def self.get_sorted_messages(group)
-  #   group.messages.order('created_at asc')
-  # end
 end
