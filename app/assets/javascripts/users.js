@@ -1,5 +1,3 @@
-// $(document).on('turbolinks:load', function(){
-// $(function(){
 $(window).on('load', function() {
   function userList(user) {
     html = 
@@ -44,7 +42,6 @@ $(window).on('load', function() {
 
 
   $('#user-search-field').on('keyup', function() {
-    console.log("hoge")
     var keyword = $(this).val();
     if (keyword == "") {
       $('#user-search-result').empty();
@@ -57,7 +54,6 @@ $(window).on('load', function() {
       data: { keyword: keyword }
     })
     .done(function(users) {
-      console.log("hoge");
       $('#user-search-result').empty();
       var added_users = getAddedUsers();
       if (users.length != 0) {
@@ -84,7 +80,6 @@ $(window).on('load', function() {
       $(this).parent().remove();
       var html = buildChatMember(user_id, user_name);
       $('#added-users').append(html);
-      console.log("hoge")
     })
 
   $(document).on('click', '.chat-group-user__btn--remove',function(){
