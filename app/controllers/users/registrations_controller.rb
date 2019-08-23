@@ -52,6 +52,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def configure_account_update_params
     devise_parameter_sanitizer.permit(:account_update, keys: [:name])
   end
+  # permit the keyword to search users
+  def configure_rendering_params
+    params.permit(:controller, :action)
+  end
 
   def update_resource(resource, params)
     resource.update_without_password(params)
