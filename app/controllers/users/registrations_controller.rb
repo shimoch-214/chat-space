@@ -7,7 +7,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # This action provides incremental search for registered users by ajax scheme.
   def index
     @users = User.where('name LIKE(?)',"%#{params[:keyword]}%").where("id != #{current_user.id}")
-    binding.pry
   end
 
   # GET /resource/sign_up
