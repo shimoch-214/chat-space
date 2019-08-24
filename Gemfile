@@ -77,3 +77,5 @@ gem 'font-awesome-rails'
 gem 'rails-i18n'
 gem 'carrierwave', '~> 2.0'
 gem 'mini_magick'
+# awsへのファイルアップロード
+gem 'fog-aws'
