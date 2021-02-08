@@ -75,7 +75,7 @@ gem 'haml-rails', '~> 1.0.0'
 gem 'devise'
 gem 'font-awesome-rails'
 gem 'rails-i18n'
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave', '~> 2.1'
 gem 'mini_magick'
 # awsへのファイルアップロード
 gem 'fog-aws'
